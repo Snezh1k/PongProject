@@ -32,7 +32,7 @@ void APongGameMode::PostLogin(APlayerController* NewPlayer)
 	if(PawnArray.Num() > 0) {
 		for (AActor* Actor : PawnArray) {
 			APongPlayer* PongPlayer = Cast<APongPlayer>(Actor);
-			if(PongPlayer && PongPlayer->IsPawnControlled()) {
+			if(PongPlayer && !PongPlayer->IsPawnControlled()) {
 				//NewPlayer->SetReplicateMovement(true);
 				NewPlayer->Possess(PongPlayer);
 				PongPlayer->SetOwner(NewPlayer);
